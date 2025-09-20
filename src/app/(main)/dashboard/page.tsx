@@ -56,7 +56,7 @@ export default function DashboardPage() {
             data-ai-hint={bgImage.imageHint}
           />
         )}
-        <div className="absolute inset-0 bg-background/70 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-black/30" />
 
         <div className="relative z-10 flex flex-col items-center justify-center p-4">
           <div className="animate-in fade-in-up duration-1000">
