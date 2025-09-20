@@ -83,6 +83,12 @@
       "description": "Portrait of a successful civil servant.",
       "imageUrl": "https://picsum.photos/seed/ias/400/400",
       "imageHint": "formal portrait"
+    },
+    {
+      "id": "dashboard-background",
+      "description": "An inspiring image for the dashboard background.",
+      "imageUrl": "https://picsum.photos/seed/dashbg/1920/1080",
+      "imageHint": "inspiring landscape"
     }
   ]
 }
