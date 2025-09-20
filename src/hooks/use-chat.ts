@@ -1,7 +1,6 @@
-// This hook is inspired by the Vercel AI SDK (https://sdk.vercel.ai/docs)
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState } from 'react';
 
 export type Message = {
   id: string;
@@ -11,20 +10,12 @@ export type Message = {
 
 export function useChat({
   api,
-  initialMessages = [],
-  onFinish,
 }: {
   api: string;
-  initialMessages?: Message[];
-  onFinish?: (message: Message) => void;
 }) {
-  const [messages, setMessages] = useState<Message[]>(initialMessages);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setMessages(initialMessages);
-  }, [initialMessages]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -60,7 +51,6 @@ export function useChat({
       };
 
       setMessages((prevMessages) => [...prevMessages, assistantMessage]);
-      onFinish?.(assistantMessage);
 
     } catch (error) {
       console.error('Error fetching chat response:', error);
@@ -70,7 +60,6 @@ export function useChat({
         content: "Sorry, I'm having a little trouble right now. Please try again in a moment.",
       };
       setMessages((prevMessages) => [...prevMessages, errorMessage]);
-      onFinish?.(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -82,6 +71,5 @@ export function useChat({
     handleInputChange,
     handleSubmit,
     isLoading,
-    setMessages,
   };
 }
