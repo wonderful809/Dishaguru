@@ -25,16 +25,16 @@ const featureCards = [
     icon: MessageSquare,
   },
   {
-    title: 'Success Stories',
-    description: 'Get inspired by reading the stories of students who achieved their dreams.',
-    href: '/success-stories',
-    icon: Award,
-  },
-  {
     title: 'Top Colleges',
     description: 'Explore a curated list of top colleges and universities across India.',
     href: '/colleges',
     icon: School,
+  },
+  {
+    title: 'Success Stories',
+    description: 'Get inspired by reading the stories of students who achieved their dreams.',
+    href: '/success-stories',
+    icon: Award,
   },
 ];
 
@@ -90,24 +90,13 @@ export default function DashboardPage() {
       </div>
 
       {/* Features Section */}
-      <div className="relative bg-background py-12 px-4 sm:px-6 lg:px-8">
-        {featuresBgImage && (
-          <Image
-            src={featuresBgImage.imageUrl}
-            alt="Features background"
-            fill
-            className="object-cover"
-            data-ai-hint={featuresBgImage.imageHint}
-          />
-        )}
-        <div className="absolute inset-0 bg-black/60" />
-
-        <div className="relative max-w-7xl mx-auto">
+      <div className="bg-background py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center">
-            <h2 className="text-3xl font-bold font-headline text-white">
+            <h2 className="text-3xl font-bold font-headline text-foreground">
               Explore Your Future
             </h2>
-            <p className="mt-4 text-lg text-white/80">
+            <p className="mt-4 text-lg text-muted-foreground">
               All the tools you need for your career journey, in one place.
             </p>
           </div>
@@ -116,24 +105,24 @@ export default function DashboardPage() {
             {featureCards.map((feature, index) => (
               <Card
                 key={feature.title}
-                className="group flex flex-col text-center transition-all duration-300 hover:shadow-xl hover:!scale-105 animate-in fade-in-up bg-white/10 backdrop-blur-sm border-white/20"
+                className="group flex flex-col text-center transition-all duration-300 hover:shadow-xl hover:!scale-105 animate-in fade-in-up"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 <CardHeader className="items-center">
-                  <div className="p-4 bg-primary/20 rounded-full w-fit transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/30">
+                  <div className="p-4 bg-primary/10 rounded-full w-fit transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
                     <feature.icon className="h-8 w-8 text-primary transition-transform duration-300 group-hover:rotate-6" />
                   </div>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                  <CardTitle className="font-headline text-xl text-white">
+                  <CardTitle className="font-headline text-xl text-foreground">
                     {feature.title}
                   </CardTitle>
-                  <CardDescription className="mt-2 text-white/80">
+                  <CardDescription className="mt-2 text-muted-foreground">
                     {feature.description}
                   </CardDescription>
                 </CardContent>
                 <CardFooter>
-                  <Button asChild variant="outline" className="w-full bg-transparent text-white border-white/50 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors">
+                  <Button asChild variant="outline" className="w-full hover:bg-primary hover:text-primary-foreground transition-colors">
                     <Link href={feature.href}>
                       Explore
                     </Link>
