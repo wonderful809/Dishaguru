@@ -1,3 +1,82 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "chatbot-feature",
+      "description": "An illustration of a friendly chatbot.",
+      "imageUrl": "https://picsum.photos/seed/chatbot/600/400",
+      "imageHint": "chatbot robot"
+    },
+    {
+      "id": "colleges-feature",
+      "description": "A picture of a university campus.",
+      "imageUrl": "https://picsum.photos/seed/campus/600/400",
+      "imageHint": "university campus"
+    },
+    {
+      "id": "stories-feature",
+      "description": "An inspiring image of people achieving their goals.",
+      "imageUrl": "https://picsum.photos/seed/success/600/400",
+      "imageHint": "success celebration"
+    },
+    {
+      "id": "college-1",
+      "description": "IIT Bombay campus.",
+      "imageUrl": "https://picsum.photos/seed/iitb/600/400",
+      "imageHint": "college campus"
+    },
+    {
+      "id": "college-2",
+      "description": "IIT Delhi campus.",
+      "imageUrl": "https://picsum.photos/seed/iitd/600/400",
+      "imageHint": "university building"
+    },
+    {
+      "id": "college-3",
+      "description": "IIM Ahmedabad campus.",
+      "imageUrl": "https://picsum.photos/seed/iima/600/400",
+      "imageHint": "modern architecture"
+    },
+    {
+      "id": "college-4",
+      "description": "AIIMS Delhi campus.",
+      "imageUrl": "https://picsum.photos/seed/aiims/600/400",
+      "imageHint": "hospital building"
+    },
+    {
+      "id": "college-5",
+      "description": "University of Delhi campus.",
+      "imageUrl": "https://picsum.photos/seed/du/600/400",
+      "imageHint": "historic building"
+    },
+    {
+      "id": "college-6",
+      "description": "Jawaharlal Nehru University campus.",
+      "imageUrl": "https://picsum.photos/seed/jnu/600/400",
+      "imageHint": "library interior"
+    },
+    {
+      "id": "success-1",
+      "description": "Portrait of a successful software engineer.",
+      "imageUrl": "https://picsum.photos/seed/eng/400/400",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "success-2",
+      "description": "Portrait of a successful doctor.",
+      "imageUrl": "https://picsum.photos/seed/doc/400/400",
+      "imageHint": "doctor smiling"
+    },
+    {
+      "id": "success-3",
+      "description": "Portrait of a successful entrepreneur.",
+      "imageUrl": "https://picsum.photos/seed/ent/400/400",
+      "imageHint": "business person"
+    },
+    {
+      "id": "success-4",
+      "description": "Portrait of a successful civil servant.",
+      "imageUrl": "https://picsum.photos/seed/ias/400/400",
+      "imageHint": "formal portrait"
+    }
+  ]
 }
