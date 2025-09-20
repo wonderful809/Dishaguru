@@ -88,10 +88,15 @@ export default {
             height: '0',
           },
         },
+        'image-zoom': {
+          '0%': { transform: 'scale(1)' },
+          '100%': { transform: 'scale(1.05)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'image-zoom': 'image-zoom 15s ease-in-out alternate infinite',
       },
     },
   },

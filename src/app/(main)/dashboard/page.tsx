@@ -52,7 +52,7 @@ export default function DashboardPage() {
             src={bgImage.imageUrl}
             alt="Inspiring background"
             fill
-            className="object-cover scale-105"
+            className="object-cover animate-image-zoom"
             data-ai-hint={bgImage.imageHint}
           />
         )}
@@ -102,12 +102,12 @@ export default function DashboardPage() {
             {featureCards.map((feature, index) => (
               <Card
                 key={feature.title}
-                className="flex flex-col text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2 animate-in fade-in-up"
+                className="group flex flex-col text-center transition-all duration-300 hover:shadow-xl hover:!scale-105 animate-in fade-in-up"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 <CardHeader className="items-center">
-                  <div className="p-4 bg-primary/10 rounded-full w-fit">
-                    <feature.icon className="h-8 w-8 text-primary" />
+                  <div className="p-4 bg-primary/10 rounded-full w-fit transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                    <feature.icon className="h-8 w-8 text-primary transition-transform duration-300 group-hover:rotate-6" />
                   </div>
                 </CardHeader>
                 <CardContent className="flex-grow">
@@ -119,7 +119,7 @@ export default function DashboardPage() {
                   </CardDescription>
                 </CardContent>
                 <CardFooter>
-                  <Button asChild variant="outline" className="w-full">
+                  <Button asChild variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                     <Link href={feature.href}>
                       Explore
                     </Link>
