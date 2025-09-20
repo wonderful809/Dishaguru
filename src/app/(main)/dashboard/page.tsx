@@ -25,16 +25,16 @@ const featureCards = [
     icon: MessageSquare,
   },
   {
-    title: 'Top Colleges',
-    description: 'Explore a curated list of top colleges and universities across India.',
-    href: '/colleges',
-    icon: School,
-  },
-  {
     title: 'Success Stories',
     description: 'Get inspired by reading the stories of students who achieved their dreams.',
     href: '/success-stories',
     icon: Award,
+  },
+  {
+    title: 'Top Colleges',
+    description: 'Explore a curated list of top colleges and universities across India.',
+    href: '/colleges',
+    icon: School,
   },
 ];
 
