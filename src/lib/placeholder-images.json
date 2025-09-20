@@ -7,6 +7,12 @@
       "imageHint": "chatbot robot"
     },
     {
+      "id": "chatbot-dashboard",
+      "description": "An illustration of a friendly chatbot on a dashboard.",
+      "imageUrl": "https://picsum.photos/seed/dashbot/800/600",
+      "imageHint": "AI robot"
+    },
+    {
       "id": "colleges-feature",
       "description": "A picture of a university campus.",
       "imageUrl": "https://picsum.photos/seed/campus/600/400",
