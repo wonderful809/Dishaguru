@@ -55,7 +55,7 @@ export default function DashboardPage() {
             src={bgImage.imageUrl}
             alt="Inspiring background"
             fill
-            className="object-cover animate-image-zoom"
+            className="object-cover"
             data-ai-hint={bgImage.imageHint}
           />
         )}
