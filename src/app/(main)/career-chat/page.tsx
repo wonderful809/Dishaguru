@@ -1,7 +1,15 @@
 'use client';
 
-import {useEffect, useRef} from 'react';
-import {MessageCircle, BrainCircuit, Send, User} from 'lucide-react';
+import {useEffect, useRef, useState} from 'react';
+import {
+  MessageCircle,
+  BrainCircuit,
+  Send,
+  User,
+  Plus,
+  Trash,
+  MessageSquare,
+} from 'lucide-react';
 import {useChat} from '@/hooks/use-chat';
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
@@ -14,13 +22,42 @@ import {
 import {Avatar, AvatarFallback} from '@/components/ui/avatar';
 import {Skeleton} from '@/components/ui/skeleton';
 import {cn} from '@/lib/utils';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
 
 export default function CareerChatPage() {
-  const {messages, input, handleInputChange, handleSubmit, isLoading} = useChat(
-    {
-      api: '/api/chat',
-    }
-  );
+  const {
+    chats,
+    activeChat,
+    setActiveChat,
+    createNewChat,
+    deleteChat,
+    messages,
+    input,
+    handleInputChange,
+    handleSubmit,
+    isLoading,
+  } = useChat({
+    api: '/api/chat',
+  });
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,7 +67,69 @@ export default function CareerChatPage() {
   }, [messages]);
 
   return (
-    <div className="flex flex-col flex-grow">
+    <div className="flex flex-grow h-full">
+      {/* Chat History Sidebar */}
+      <Card className="w-64 flex flex-col mr-4">
+        <CardHeader>
+          <Button onClick={createNewChat} className="w-full">
+            <Plus className="mr-2 h-4 w-4" /> New Chat
+          </Button>
+        </CardHeader>
+        <CardContent className="flex-grow p-2 overflow-y-auto">
+          <div className="flex flex-col gap-2">
+            {chats.map(chat => (
+              <div
+                key={chat.id}
+                className={cn(
+                  'flex items-center justify-between p-2 rounded-md cursor-pointer',
+                  activeChat?.id === chat.id
+                    ? 'bg-primary/10 text-primary'
+                    : 'hover:bg-muted'
+                )}
+                onClick={() => setActiveChat(chat.id)}
+              >
+                <div className="flex items-center gap-2 truncate">
+                  <MessageSquare className="h-4 w-4 flex-shrink-0" />
+                  <span className="truncate text-sm">
+                    {chat.messages[0]?.content.substring(0, 25) || 'New Chat'}
+                  </span>
+                </div>
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-6 w-6 text-muted-foreground hover:text-destructive"
+                      onClick={e => e.stopPropagation()}
+                    >
+                      <Trash className="h-4 w-4" />
+                    </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        This will permanently delete this chat.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogAction
+                        onClick={() => deleteChat(chat.id)}
+                        className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                      >
+                        Delete
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Main Chat Window */}
       <Card className="flex-grow flex flex-col animate-fade-in-up">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -107,7 +206,12 @@ export default function CareerChatPage() {
           </div>
         </CardContent>
         <div className="p-4 border-t bg-background/95">
-          <form onSubmit={handleSubmit} className="flex items-center gap-2">
+          <form
+            onSubmit={e => {
+              handleSubmit(e);
+            }}
+            className="flex items-center gap-2"
+          >
             <Input
               value={input}
               onChange={handleInputChange}
