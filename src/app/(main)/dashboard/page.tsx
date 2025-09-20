@@ -36,15 +36,15 @@ export default function DashboardPage() {
 
       <div className="relative z-10 flex flex-col items-center justify-center p-4">
         <div className="animate-in fade-in-up duration-700">
-          <Card className="w-full max-w-md bg-background/80 backdrop-blur-sm border-white/20 shadow-xl">
+          <Card className="w-full max-w-md bg-transparent border-none shadow-none">
             <CardHeader className="items-center text-center">
               <div className="p-3 bg-primary/10 rounded-full border-4 border-primary/20 w-fit mb-4">
                 <MessageSquare className="h-8 w-8 text-primary" />
               </div>
-              <CardTitle className="text-2xl font-bold font-headline">
+              <CardTitle className="text-2xl font-bold font-headline text-white">
                 Chat with your Mentor
               </CardTitle>
-              <CardDescription className="text-base">
+              <CardDescription className="text-base text-white/80">
                 Get personalized career advice, ask questions, and explore your
                 future possibilities with our AI-powered career mentor.
               </CardDescription>
