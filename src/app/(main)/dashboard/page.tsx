@@ -45,7 +45,7 @@ export default function DashboardPage() {
         </div>
         <div className="grid grid-cols-1 gap-6 animate-in fade-in-up duration-700">
           <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 bg-background/80 backdrop-blur-sm">
-            <div className="p-8">
+            <div className="p-8 flex flex-col items-center">
               <div className="p-3 bg-primary/10 rounded-full border-4 border-primary/20 w-fit mb-4">
                 <MessageSquare className="h-8 w-8 text-primary" />
               </div>
