@@ -27,38 +27,38 @@
     {
       "id": "college-1",
       "description": "IIT Bombay campus.",
-      "imageUrl": "https://picsum.photos/seed/iitb/600/400",
-      "imageHint": "college campus"
+      "imageUrl": "https://images.unsplash.com/photo-1606838883659-e374c4a75933?q=80&w=600&auto=format&fit=crop",
+      "imageHint": "IIT Bombay"
     },
     {
       "id": "college-2",
       "description": "IIT Delhi campus.",
-      "imageUrl": "https://picsum.photos/seed/iitd/600/400",
-      "imageHint": "university building"
+      "imageUrl": "https://images.unsplash.com/photo-1622383838429-373504f7292c?q=80&w=600&auto=format&fit=crop",
+      "imageHint": "IIT Delhi"
     },
     {
       "id": "college-3",
       "description": "IIM Ahmedabad campus.",
-      "imageUrl": "https://picsum.photos/seed/iima/600/400",
-      "imageHint": "modern architecture"
+      "imageUrl": "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=600&auto=format&fit=crop",
+      "imageHint": "IIM Ahmedabad"
     },
     {
       "id": "college-4",
       "description": "AIIMS Delhi campus.",
-      "imageUrl": "https://picsum.photos/seed/aiims/600/400",
-      "imageHint": "hospital building"
+      "imageUrl": "https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=600&auto=format&fit=crop",
+      "imageHint": "AIIMS Delhi"
     },
     {
       "id": "college-5",
       "description": "University of Delhi campus.",
-      "imageUrl": "https://picsum.photos/seed/du/600/400",
-      "imageHint": "historic building"
+      "imageUrl": "https://images.unsplash.com/photo-1607503381605-70559f1f0f4a?q=80&w=600&auto=format&fit=crop",
+      "imageHint": "Delhi University"
     },
     {
       "id": "college-6",
       "description": "Jawaharlal Nehru University campus.",
-      "imageUrl": "https://picsum.photos/seed/jnu/600/400",
-      "imageHint": "library interior"
+      "imageUrl": "https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=600&auto=format&fit=crop",
+      "imageHint": "JNU Delhi"
     },
     {
       "id": "success-1",
