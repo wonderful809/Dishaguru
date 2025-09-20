@@ -3,7 +3,6 @@ import { Award, Quote } from 'lucide-react';
 import {
   Card,
   CardContent,
-  CardHeader,
 } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { stories } from './data';
@@ -23,26 +22,30 @@ export default function SuccessStoriesPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-        {stories.map((story) => {
+        {stories.map((story, index) => {
           const image = PlaceHolderImages.find((img) => img.id === story.imageId);
           return (
-            <Card key={story.id} className="overflow-hidden transition-shadow duration-300 hover:shadow-xl animate-fade-in-up">
-              <CardContent className="p-6 flex flex-col items-center text-center">
+            <Card 
+              key={story.id} 
+              className="group overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-primary/50 animate-in fade-in-up"
+              style={{ animationDelay: `${index * 150}ms` }}
+            >
+              <CardContent className="p-8 flex flex-col items-center text-center">
                 {image && (
-                  <Avatar className="h-24 w-24 mb-4 border-4 border-primary/20">
+                  <Avatar className="h-28 w-28 mb-6 border-4 border-primary/20 transition-transform duration-500 group-hover:scale-110">
                     <AvatarImage src={image.imageUrl} alt={story.name} data-ai-hint={image.imageHint} />
                     <AvatarFallback>{story.name.charAt(0)}</AvatarFallback>
                   </Avatar>
                 )}
-                <div className="flex-grow">
-                  <Quote className="h-8 w-8 text-primary/30 mx-auto" />
-                  <p className="text-lg italic text-foreground/90 mt-2 mb-4">
+                <div className="flex-grow relative">
+                  <Quote className="h-10 w-10 text-primary/20 absolute -top-4 left-1/2 -translate-x-1/2 transform transition-transform duration-500 group-hover:scale-125" />
+                  <p className="text-lg italic text-foreground/90 mt-4 mb-4 z-10 relative">
                     {story.story}
                   </p>
                 </div>
                 <div className="mt-auto text-center">
-                  <p className="font-bold text-lg font-headline text-primary">{story.name}</p>
-                  <p className="text-sm text-muted-foreground">{story.role}</p>
+                  <p className="font-bold text-xl font-headline text-primary">{story.name}</p>
+                  <p className="text-base text-muted-foreground">{story.role}</p>
                 </div>
               </CardContent>
             </Card>

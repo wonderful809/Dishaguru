@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { School, MapPin, BarChart, TrendingUp, BookOpen } from 'lucide-react';
+import { School, MapPin, BarChart, TrendingUp, BookOpen, ChevronRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import {
   Card,
@@ -24,24 +24,28 @@ export default function CollegesPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {colleges.map((college) => {
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        {colleges.map((college, index) => {
           const image = PlaceHolderImages.find((img) => img.id === college.imageId);
           return (
-            <Card key={college.id} className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl animate-fade-in-up">
+            <Card 
+              key={college.id} 
+              className="group flex flex-col overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-in fade-in-up"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
               {image && (
-                <div className="relative h-48 w-full">
+                <div className="relative h-56 w-full overflow-hidden">
                   <Image
                     src={image.imageUrl}
                     alt={college.name}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                     data-ai-hint={image.imageHint}
                   />
                 </div>
               )}
               <CardHeader>
-                <CardTitle className="font-headline text-xl">{college.name}</CardTitle>
+                <CardTitle className="font-headline text-xl font-bold">{college.name}</CardTitle>
                 <div className="flex items-center gap-2 text-muted-foreground text-sm pt-1">
                   <MapPin className="h-4 w-4" />
                   <span>{college.location}</span>
