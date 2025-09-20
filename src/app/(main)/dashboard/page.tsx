@@ -42,6 +42,9 @@ export default function DashboardPage() {
   const bgImage = PlaceHolderImages.find(
     (img) => img.id === 'dashboard-background'
   );
+  const featuresBgImage = PlaceHolderImages.find(
+    (img) => img.id === 'features-background'
+  );
 
   return (
     <div className="flex-grow flex flex-col -m-4 sm:-m-6 lg:-m-8">
@@ -56,7 +59,7 @@ export default function DashboardPage() {
             data-ai-hint={bgImage.imageHint}
           />
         )}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative z-10 flex flex-col items-center justify-center p-4">
           <div className="animate-in fade-in-up duration-1000">
@@ -87,13 +90,24 @@ export default function DashboardPage() {
       </div>
 
       {/* Features Section */}
-      <div className="bg-background py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <div className="relative bg-background py-12 px-4 sm:px-6 lg:px-8">
+        {featuresBgImage && (
+          <Image
+            src={featuresBgImage.imageUrl}
+            alt="Features background"
+            fill
+            className="object-cover"
+            data-ai-hint={featuresBgImage.imageHint}
+          />
+        )}
+        <div className="absolute inset-0 bg-black/60" />
+
+        <div className="relative max-w-7xl mx-auto">
           <div className="text-center">
-            <h2 className="text-3xl font-bold font-headline text-foreground">
+            <h2 className="text-3xl font-bold font-headline text-white">
               Explore Your Future
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-lg text-white/80">
               All the tools you need for your career journey, in one place.
             </p>
           </div>
@@ -102,24 +116,24 @@ export default function DashboardPage() {
             {featureCards.map((feature, index) => (
               <Card
                 key={feature.title}
-                className="group flex flex-col text-center transition-all duration-300 hover:shadow-xl hover:!scale-105 animate-in fade-in-up"
+                className="group flex flex-col text-center transition-all duration-300 hover:shadow-xl hover:!scale-105 animate-in fade-in-up bg-white/10 backdrop-blur-sm border-white/20"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 <CardHeader className="items-center">
-                  <div className="p-4 bg-primary/10 rounded-full w-fit transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                  <div className="p-4 bg-primary/20 rounded-full w-fit transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/30">
                     <feature.icon className="h-8 w-8 text-primary transition-transform duration-300 group-hover:rotate-6" />
                   </div>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                  <CardTitle className="font-headline text-xl">
+                  <CardTitle className="font-headline text-xl text-white">
                     {feature.title}
                   </CardTitle>
-                  <CardDescription className="mt-2">
+                  <CardDescription className="mt-2 text-white/80">
                     {feature.description}
                   </CardDescription>
                 </CardContent>
                 <CardFooter>
-                  <Button asChild variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <Button asChild variant="outline" className="w-full bg-transparent text-white border-white/50 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors">
                     <Link href={feature.href}>
                       Explore
                     </Link>

@@ -89,6 +89,12 @@
       "description": "An inspiring image for the dashboard background.",
       "imageUrl": "https://picsum.photos/seed/dashbg/1920/1080",
       "imageHint": "inspiring landscape"
+    },
+    {
+      "id": "features-background",
+      "description": "A vibrant, abstract background for the features section.",
+      "imageUrl": "https://picsum.photos/seed/features/1920/1080",
+      "imageHint": "abstract texture"
     }
   ]
 }
